@@ -1,0 +1,26 @@
+{
+  "name": "development-demo",
+  "version": "0.0.1",
+  "description": "Devcon IV Security Dev Demo",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "coveralls": "3.0.0",
+    "ganache-cli": "6.1.0",
+    "openzeppelin-solidity": "1.10.0",
+    "package.json": "^2.0.1",
+    "solidity-coverage": "0.5.4",
+    "truffle": "4.1.11"
+  },
+  "devDependencies": {
+    "solhint": "1.2.1"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/truffle test",
+    "test-cov": "./node_modules/.bin/solidity-coverage",
+    "coveralls-collect": "cat coverage/lcov.info | ./node_modules/.bin/coveralls",
+    "lint": "./node_modules/.bin/solhint contracts/QSPb*.sol"
+  }
+}
