@@ -8,8 +8,8 @@ A demo for Devcon IV presentation.
 1. `npm install`
 1. For convenience, install Truffle globally: npm install -g truffle@0.0.0, replacing 0.0.0 by the Truffle version from package.json
 1. Install Ganache (Formerly, testrpc), either:
-  - UI version of version 1.1.0 or
-  - Console version: `npm install -g ganache-cli@6.1.0` and then (from another terminal tab): `ganache-cli`
+   * UI version of version 1.1.0 or
+   * Console version: `npm install -g ganache-cli@6.1.0` and then (from another terminal tab): `ganache-cli`
 1. `truffle compile`
 1. `npm test`. To also generate a code coverage report, run `npm run test-cov` instead.
 
