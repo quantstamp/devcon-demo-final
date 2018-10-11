@@ -7,7 +7,6 @@
     "test": "test"
   },
   "dependencies": {
-    "coveralls": "3.0.0",
     "ganache-cli": "6.1.0",
     "openzeppelin-solidity": "1.10.0",
     "solidity-coverage": "0.5.4",
@@ -19,7 +18,6 @@
   "scripts": {
     "test": "./node_modules/.bin/truffle test",
     "test-cov": "./node_modules/.bin/solidity-coverage",
-    "coveralls-collect": "cat coverage/lcov.info | ./node_modules/.bin/coveralls",
-    "lint": "./node_modules/.bin/solhint contracts/QSPb*.sol"
+    "lint": "./node_modules/.bin/solhint contracts/*.sol"
   }
 }
