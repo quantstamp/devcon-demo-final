@@ -10,7 +10,6 @@
     "coveralls": "3.0.0",
     "ganache-cli": "6.1.0",
     "openzeppelin-solidity": "1.10.0",
-    "package.json": "^2.0.1",
     "solidity-coverage": "0.5.4",
     "truffle": "4.1.11"
   },
