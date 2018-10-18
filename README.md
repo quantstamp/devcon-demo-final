@@ -1,6 +1,19 @@
 # devcon-demo-final
 A demo for Devcon IV presentation.
 
+## Escrow Protocol
+
+A one-time use escrow smart contract that works as follows:
+
+1. Seller deploys the contract and set the price
+1. Seller initiates the contract by staking the price
+1. Buyer initiates the contract by staking the price
+1. Buyer transfers the sale price to the contract
+1. Buyer confirms delivery of an item and the contract handles the transfers
+    - Buyer gets the stake back
+    - Seller gets the stake back and the purchase price
+
+
 ## Requirements
 - Node.JS v8 with npm
 
