@@ -12,12 +12,8 @@
     "solidity-coverage": "0.5.4",
     "truffle": "4.1.11"
   },
-  "devDependencies": {
-    "solhint": "1.2.1"
-  },
   "scripts": {
     "test": "./node_modules/.bin/truffle test",
     "test-cov": "./node_modules/.bin/solidity-coverage",
-    "lint": "./node_modules/.bin/solhint contracts/*.sol"
   }
 }
