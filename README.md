@@ -1,6 +1,8 @@
 # devcon-demo-final
 A demo for Devcon IV presentation.
 
+[Presentation in Google Slides](https://docs.google.com/presentation/d/1F_d0N121oATQt0-8VDUIcq2oFoDo2BQPhr5RXhGEldI/edit?usp=sharing)
+
 ## Escrow Protocol
 
 A one-time use escrow smart contract that works as follows:
