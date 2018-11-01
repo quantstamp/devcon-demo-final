@@ -8,33 +8,6 @@ contract('Escrow', function(accounts) {
     assert.true;
   });
 
-  it("Test that the buyer, seller and price are set properly.", async function() {
-    const escrow = await Escrow.deployed();
-    const buyer = accounts[0];
-    const seller = accounts[1];
-    // the price is internally recorded in wei
-    const price = 10 ** 18;
-    assert.equal(await escrow.buyer(), buyer);
-    assert.equal(await escrow.seller(), seller);
-    var priceInWei = await escrow.price();
-    assert.equal(priceInWei.toNumber(), price);
-    assert.equal(await escrow.currentState(), 0);
-  });
-
-  it("Test that the contract throws when the price is incorrect", async function() {
-    const escrow = await Escrow.deployed();
-    const buyer = accounts[0];
-    const seller = accounts[1];
-    // the price is internally recorded in wei
-    const price = 11 ** 18;
-    let errr = false
-      try {
-        await escrow.initiateContract({from:seller,value:price});
-      } catch (e) {
-        errr = true
-      }
-    assert.isTrue(errr, 'should give an error message')
-  });
 
   it("Test that the contract throws when confirmPayment is called before initiation and with bad arguments", async function() {
     const escrow = await Escrow.deployed();
@@ -100,22 +73,7 @@ contract('Escrow', function(accounts) {
     assert.isTrue(errr, "should give an error message because the buyer didnt call");
   });
 
-  it("Test that the nothing changes when the sender isn't buyer or seller", async function() {
-    const escrow = await Escrow.deployed();
-    const first = accounts[2];
-    const second = accounts[3];
-    // the price is internally recorded in wei
-    const price = 10 ** 18;
-    await escrow.initiateContract({from:first,value:price});
 
-    assert.isFalse(await escrow.buyerIn(), "buyer should not be in");
-    assert.isFalse(await escrow.sellerIn(), "seller should not be in");
-
-    await escrow.initiateContract({from:second,value:price});
-
-    assert.isFalse(await escrow.buyerIn(), "buyer should not be in");
-    assert.isFalse(await escrow.sellerIn(), "seller should not be in");
-  });
 
   it("Test that the buyer status is true after they initiate", async function() {
     const escrow = await Escrow.deployed();
@@ -148,19 +106,7 @@ contract('Escrow', function(accounts) {
     assert.isTrue(errr, 'should give an error message for bad state')
   });
 
-  it("Test that the seller status is true after they initiate", async function() {
-    const escrow = await Escrow.deployed();
-    const buyer = accounts[0];
-    const seller = accounts[1];
-    // the price is internally recorded in wei
-    const price = 10 ** 18;
-    await escrow.initiateContract({from:seller,value:price});
 
-    assert.isTrue(await escrow.buyerIn(), "buyer should be in");
-    assert.isTrue(await escrow.sellerIn(), "seller should be in");
-    assert.equal(await escrow.currentState(),1);
-
-  });
 
   it("Test that confirmPayment throws when it is the correct state but called by the seller or bad price", async function() {
     const escrow = await Escrow.deployed();
@@ -200,22 +146,7 @@ contract('Escrow', function(accounts) {
 
   });
 
-  it("Test that confirmDelivery throws when it is the correct state but called by the seller", async function() {
-    const escrow = await Escrow.deployed();
-    const buyer = accounts[0];
-    const seller = accounts[1];
-    // the price is internally recorded in wei
-    const price = 10 ** 18;
-    const badPrice = 11 ** 18;
-    let errr = false
-      try {
-        await escrow.confirmPayment({from:seller,value:price});
-      } catch (e) {
-        errr = true
-      }
-    assert.isTrue(errr, 'should give an error message for wrong caller')
 
-  });
 
   it("Test that the state is changed when confirmDelivery is called correctly", async function() {
     const escrow = await Escrow.deployed();
@@ -234,4 +165,5 @@ contract('Escrow', function(accounts) {
   });
 
 });
+
 
